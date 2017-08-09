@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>Form-1</title>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<script>
+    function validateform()
+   
+         {
+                var n=document.forms["regfrm"]["name"].value;
+                if(n=="")
+                {
+                          alert("Fill The Name Field");
+   		                 document.regfrm.name.focus();
+  		                  return false;
+                 }
+       	        var t=/^[A-Za-z]{1,50}$/;
+   		            if(t.test(n)==false)
+                {
+                    alert("Invalid name");
+                    document.regfrm.name.focus();
+                    return false;
+  		          }
+                  
+				   var a=document.forms["regfrm"]["username"].value;
+                if(a=="")
+                {
+                          alert("Fill The User Name Field");
+   		                 document.regfrm.username.focus();
+  		                  return false;
+                 }
+       	        var tt=/^[A-Za-z]{1,50}$/;
+   		 if(tt.test(a)==false)
+                {
+                    alert("Invalid username");
+                    document.regfrm.username.focus();
+                    return false;
+  		 }
+              
+		 var pwd=document.forms["regfrm"]["password"].value;
+                if(pwd=="")
+                {
+                    alert("Please Enter the Password");
+                    document.regfrm.password.focus();
+                   return false;
+                 }
+				 
+            var qwd=document.forms["regfrm"]["cpassword"].value;
+              if(qwd=="")
+              {
+                    alert("Please Enter the Password");
+                   document.regfrm.cpassword.focus();
+                   return false;
+                 	 
+		}
+                
+                 if(pwd!=qwd)
+                {
+                    alert("Mismatch Password");
+                        //document.regfrm.password.focus();
+                        document.regfrm.cpassword.focus();
+                        return false;
+                }
+                
+                
+                
+                var id=document.forms["regfrm"]["eid"].value;
+ 
+               if(id=="")
+
+                {
+ 
+                   alert("Please Enter the Email Id");
+   
+                 document.regfrm.eid.focus();
+ 
+                   return false;
+  
+              }
+            
+	  var z=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  
+	 if(z.test(id)==false)
+ 
+             {
+ 
+                   alert("Invalid Email Id");
+   
+                 document.regfrm.eid.focus();
+  
+                  return false;
+
+              }
+			  
+			   var nn=document.forms["regfrm"]["mobileno"].value;
+                if(nn=="")
+                {
+                          alert("Fill The Mobile no Field");
+   		                 document.regfrm.mobileno.focus();
+  		                  return false;
+                 }
+       	        var t1=/^[0-9]{10}$/;
+   		            if(t1.test(nn)==false)
+                {
+                    alert("Invalid Mobile No");
+                    document.regfrm.mobileno.focus();
+                    return false;
+  		 }
+                 
+  }
+  
+</script>
+
+
+<!--======================================================================-->
+</head>
+<body background="test.png">
+<center><h1> Register New Account Form-1</h1></center>
+<div style="float: left; margin-left: 550px;"><br>
+	   	 <form class="login" action="RegisterServlet" name="regfrm" method="post" onSubmit="return validateform()">
+                     <br><br><br><h2><font color="#fffff">Please Enter Personal Details :</font></h2>
+                    
+                     
+                    
+                     <input type="text"  placeholder="Name *" name="name" value="" size="35"><br>
+                   <input type="text" placeholder="User Name *" name="username" value="" size="35"><br>
+                     <input type="password"  placeholder="Password *" name="password" value="" size="35"><br>
+                    <input type="password"  placeholder="Conform Password *" name="cpassword" value="" size="35"><br>
+                     <input type="text" placeholder="Email ID *" name="eid" value="" size="35"><br>
+                    Gender:<select name="genter" >
+                        <option value="male">Male</option>   
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                               </select><br>
+                 <input type="text" placeholder="Mobile No *" name="mobileno" value="" size="35"><br>
+                     <input type="text" placeholder="DOB:  DD/MM/YYYY" name="date" value="" size="35"><br><br><br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" name="submit" value="Register" style="border-radius:40px/24px; height:40px;width:150px; background-color:#a160e5">
+                    
+                     
+                 </form>
+	 
+ <h4>Already have an account? <a href="index.html">Sign In</a></h4>
+    </div>
+          
+</body>
+</html>	
